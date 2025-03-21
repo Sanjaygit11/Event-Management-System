@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EventManagementSystem.Models.Event>
+
+@{
+    ViewBag.Title = "Event Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Event_ Index.css" />
+<!-- Background Image Section -->
+<div class="event-index-background">
+    <div class="container py-5">
+        <!-- Welcome Message for Logged-in User -->
+        @if (Session["UserId"] != null && Session["UserName"] != null)
+        {
+          <div class="welcome-message mb-4">
+               <h4 class="text-center text-success">Welcome, @Session["UserName"]!</h4>
+           </div>}
+        <!-- Display TempData Message -->
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["Message"]
+            </div>
+        }
+
+        <h2 class="text-center text-white mb-4">Event Listings</h2>
+
+        <!-- User Info Section -->
+        @if (Session["UserId"] == null)
+        {
+            <p class="text-white text-center">
+                Please <a href="@Url.Action("Login", "Login")" class="text-info">login</a> to register for events.
+            </p>
+        }
+        else
+        {
+            <p class="text-center">
+                <a href="@Url.Action("Index", "UserDashboard")" class="btn btn-secondary">My Registrations</a>
+            </p>
+        }
+
+        <!-- Search and Filter Section -->
+        <div class="search-filter mb-4">
+            <form action="@Url.Action("Index", "Event")" method="get">
+                <input type="text" name="searchTitle" class="form-control" placeholder="Search by title" />
+                <input type="text" name="searchLocation" class="form-control" placeholder="Search by location" />
+                <input type="date" name="dateFilter" class="form-control" />
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <!-- Event List Table -->
+        <table class="table table-hover bg-light">
+            <thead>
+                <tr class="text-center">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Available Seats</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No events found.</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@item.Location</td>
+                            <td>@item.AvailableSeats</td>
+                            <td>
+                                <a href="@Url.Action("Details", "Event", new { id = item.EventId })" class="btn btn-info btn-sm">View Details</a>
+                                @if (Session["UserId"] != null && item.AvailableSeats > 0)
+                                {
+                                    <a href="@Url.Action("Register", "Event", new { id = item.EventId })" class="btn btn-primary btn-sm">Register</a>
+                                }
+                                else if (item.AvailableSeats == 0)
+                                {
+                                    <span class="text-danger">Fully Booked</span>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Login", "Login")" class="btn btn-link btn-sm">Login to Register</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

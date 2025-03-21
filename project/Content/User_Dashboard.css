@@ -1,0 +1,112 @@
+﻿/* User Dashboard Styling */
+body {
+    background-color: #f4ffea;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.container {
+    margin-top: 50px;
+    background-color: #363636;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Ensure the container is positioned for absolute child elements */
+}
+
+.top-right-button {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Adjust to desired top-right corner position */
+}
+
+    .top-right-button .btn {
+        width: auto; /* Set the button width to auto to avoid stretching */
+        padding: 6px 12px;
+    }
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+    h2 + h2 {
+        font-size: 26px;
+        margin-top: 10px;
+    }
+
+.img-thumbnail {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button.btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #45a049;
+    }
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+
+    .btn-danger:hover {
+        background-color: #c0392b;
+    }
+
+a.btn {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #C7749B;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+    a.btn:hover {
+        background-color: #45a049;
+    }

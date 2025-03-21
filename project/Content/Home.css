@@ -1,0 +1,249 @@
+﻿/* General Reset */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: black;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-image: url(Image/pexels-wendywei-1387174.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+    .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-section .btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+        .hero-section .btn:hover {
+            background-color: #0056b3;
+        }
+
+/* About Section */
+.about-section {
+    background-color: black;
+    padding: 60px 0;
+    margin: 2px 0px;
+    color: white;
+}
+
+    .about-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .about-section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+/* Upcoming Events Section */
+.upcoming-events {
+    background-color: black;
+    padding: 60px 0;
+}
+
+    .upcoming-events h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 40px;
+        color: white;
+    }
+
+/* Carousel Container */
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    margin: 0 15px; /* Space between cards */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1300px; /* Fixed width for uniformity */
+    /* Prevent overflow */
+}
+
+/* Card Styles */
+.card {
+    width: 100%; /* Takes up full width of its container */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card a {
+    display: block;
+    margin: 0 auto;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    max-width: 120px;
+}
+
+    .card a:hover {
+        background-color: #0056b3;
+    }
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+    .footer p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+/* Upcoming Events - Side by Side Cards */
+.carousel-inner .carousel-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card {
+    width: 30%; /* Adjust the width to fit three cards side by side */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .upcoming-events h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-item {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Full width of container for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .upcoming-events h2 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-item {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

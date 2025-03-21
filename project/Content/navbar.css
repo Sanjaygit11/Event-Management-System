@@ -1,0 +1,100 @@
+﻿/* Navigation Bar Styling */
+.navbar {
+    background-color: #343a40; /* Dark gray background */
+    border: none;
+    border-radius: 0; /* No rounded corners for a modern look */
+    padding-bottom: 20px;
+    width: 100%; /* Ensure full width */
+    position: fixed; /* Make sure it's always at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Make sure the navbar stays on top */
+}
+
+    .navbar .navbar-brand {
+        color: #ffffff; /* White text for the brand */
+        font-weight: bold;
+        font-size: 1.5rem; /* Larger font size for brand text */
+        text-transform: uppercase; /* All uppercase letters */
+        display: inline-block; /* Keep the brand inline */
+        margin-right: 20px; /* Add space between brand and links */
+    }
+
+    .navbar .navbar-nav {
+        display: flex; /* Ensure links are in a single horizontal line */
+        align-items: center; /* Vertically align links to the center */
+        margin: 0;
+        padding: 0;
+        list-style: none; /* Remove bullet points */
+        justify-content: center;
+        width: 100%; /* Ensure the nav is full width */
+    }
+
+    .navbar .nav > li {
+        margin: 0 10px; /* Space between links */
+    }
+
+        .navbar .nav > li > a {
+            color: #ffffff; /* White text for navigation links */
+            font-size: 1rem; /* Standard font size for links */
+            padding: 10px 15px; /* Spacing for a comfortable clickable area */
+            text-transform: uppercase; /* All uppercase letters for consistency */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .navbar .nav > li > a:hover,
+            .navbar .nav > li.active > a {
+                color: #ffc107; /* Golden text color on hover or active state */
+                background-color: transparent; /* No background color on hover */
+            }
+
+/* Navbar Text Styling */
+.navbar-text {
+    color: #ffffff; /* White text for additional navbar text */
+    font-size: 1rem; /* Standard font size */
+}
+
+.navbar-right .navbar-text {
+    font-weight: bold;
+    margin-left: auto; /* Push to the right */
+    margin-right: 15px; /* Spacing for alignment */
+}
+
+/* Responsive Button Styling */
+.navbar-toggle {
+    border-color: #ffffff; /* White border for the toggle button */
+}
+
+    .navbar-toggle .icon-bar {
+        background-color: #ffffff; /* White bars for the toggle button */
+    }
+
+/* Dropdown Styling */
+.navbar .dropdown-menu {
+    background-color: #343a40; /* Dark gray background for dropdown */
+    border: none; /* No borders for a cleaner look */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+    .navbar .dropdown-menu > li > a {
+        color: #ffffff; /* White text for dropdown links */
+        padding: 10px 20px; /* Comfortable spacing */
+    }
+
+        .navbar .dropdown-menu > li > a:hover {
+            background-color: #ffc107; /* Golden background on hover */
+            color: #343a40; /* Dark text on golden background */
+        }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+    .navbar .navbar-nav {
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start; /* Align links to the left */
+    }
+
+        .navbar .navbar-nav li {
+            width: 100%; /* Make each item take full width */
+            text-align: left; /* Align text to the left */
+        }
+}

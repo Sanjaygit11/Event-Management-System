@@ -1,0 +1,53 @@
+﻿@model EventManagementSystem.Models.Event
+
+@{
+    ViewBag.Title = "Create Event";
+}
+
+<link rel="stylesheet" href="~/Content/CreateEvent.css" />
+
+<!-- Main Section with Background -->
+<div class="main-section">
+    <h1 class="text-center mb-5">Create Event</h1>
+
+    @using (Html.BeginForm("CreateEvent", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- Event Form Fields -->
+        <div class="form-row">
+            <label for="Title">Event Title</label>
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+        </div>
+
+        <div class="form-row">
+            <label for="Description">Event Description</label>
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+        </div>
+
+        <div class="form-row">
+            <label for="Date">Event Date</label>
+            @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        </div>
+
+        <div class="form-row">
+            <label for="Location">Event Location</label>
+            @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+        </div>
+
+        <div class="form-row">
+            <label for="AvailableSeats">Available Seats</label>
+            @Html.TextBoxFor(model => model.AvailableSeats, new { @class = "form-control", type = "number" })
+        </div>
+
+        <div class="form-row">
+            <label for="ImageUrl">Upload Event Image</label>
+            <input type="file" name="ImageUrl" id="ImageUrl" class="form-control" />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-row text-center">
+            <button type="submit" class="btn btn-success">Create Event</button>
+        </div>
+    }
+</div>

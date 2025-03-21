@@ -1,0 +1,104 @@
+﻿/* Body background */
+body {
+    background-color: #f4ffea; /* Light background color */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container for center alignment */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Card-style container for registration details */
+.card {
+    background-color: #ffcece;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+/* Title styling */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Event details section */
+.registration-summary {
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+    /* Event details paragraph */
+    .registration-summary p {
+        margin: 10px 0;
+    }
+
+    /* Bold for labels */
+    .registration-summary strong {
+        color: #007bff;
+    }
+
+/* Button wrapper for aligning buttons */
+.button-wrapper {
+    margin-top: 20px;
+}
+
+/* Style for the buttons (Confirm Registration, Cancel, and Go to Dashboard) */
+
+/* Default button style for anchor tags */
+a.btn, button.btn {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent; /* Transparent border by default */
+}
+
+/* Confirm Registration Button */
+button.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+}
+
+    button.btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+/* Cancel Button */
+a.btn-secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff; /* Blue border for cancel */
+}
+
+    a.btn-secondary:hover {
+        background-color: #007bff;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+/* Go to Dashboard Button */
+a.btn-info {
+    background-color: transparent;
+    color: #17a2b8;
+    border: 2px solid #17a2b8; /* Teal border for go to dashboard */
+}
+
+    a.btn-info:hover {
+        background-color: #17a2b8;
+        color: white;
+        transform: translateY(-2px);
+    }

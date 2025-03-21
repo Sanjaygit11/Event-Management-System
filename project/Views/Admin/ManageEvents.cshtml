@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EventManagementSystem.Models.Event>
+
+@{
+    ViewBag.Title = "Manage Events";
+}
+<link rel="stylesheet" href="~/Content/EventManage.css" />
+
+<h1 class="text-center mb-4">Manage Events</h1>
+
+<!-- Flash Messages -->
+<div class="text-center mb-4">
+    @TempData["EventCreated"]
+    @TempData["EventUpdated"]
+    @TempData["EventDeleted"]
+</div>
+
+<!-- Event Management Table -->
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Event Title</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Available Seats</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eventItem in Model)
+            {
+                <tr>
+                    <td>@eventItem.Title</td>
+                    <td>@eventItem.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@eventItem.Location</td>
+                    <td>@eventItem.AvailableSeats</td>
+                    <td>
+                        <a href="@Url.Action("EditEvent", new { id = eventItem.EventId })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("DeleteEvent", new { id = eventItem.EventId })" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                        <a href="@Url.Action("EventDetails", new { id = eventItem.EventId })" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Create New Event Button -->
+<div class="text-center mt-4">
+    <a href="@Url.Action("CreateEvent")" class="btn btn-success btn-lg">Create New Event</a>
+</div>
+<div class="text-center mt-4">
+    <a href="@Url.Action("Dashboard","Admin")" class="btn btn-success btn-lg">GoTo Dashboard</a>
+</div>

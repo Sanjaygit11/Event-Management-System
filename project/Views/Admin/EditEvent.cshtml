@@ -1,0 +1,67 @@
+﻿@model EventManagementSystem.Models.Event
+
+@{
+    ViewBag.Title = "Edit Event";
+}
+<link rel="stylesheet" href="~/Content/EdditEvent.css" />
+
+<div class="edit-event-container">
+    <h2 class="edit-event-title">Edit Event</h2>
+
+    @TempData["EventUpdated"]
+
+    @using (Html.BeginForm("EditEvent", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "edit-event-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.EventId) <!-- Hidden field for EventID -->
+
+        <!-- Two fields per row: Title and Description -->
+        <div class="form-group">
+            <div class="form-control-container">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+            </div>
+            <div class="form-control-container">
+                @Html.LabelFor(model => model.Description)
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <!-- Two fields per row: Date and Location -->
+        <div class="form-group">
+            <div class="form-control-container">
+                @Html.LabelFor(model => model.Date)
+                @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            </div>
+            <div class="form-control-container">
+                @Html.LabelFor(model => model.Location)
+                @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <!-- Available Seats and Image Upload in the same row -->
+        <div class="form-group">
+            <div class="form-control-container">
+                @Html.LabelFor(model => model.AvailableSeats)
+                @Html.TextBoxFor(model => model.AvailableSeats, new { @class = "form-control", type = "number" })
+            </div>
+
+            <div class="form-control-container">
+                <label for="ImageUrl">Update Event Image</label>
+                <input type="file" name="ImageUrl" id="ImageUrl" class="form-control" />
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <div class="mt-2">
+                        <img src="@Url.Content(Model.ImageUrl)" alt="@Model.Title" class="img-fluid" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Button in a single row, centered -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update Event</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,106 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 40px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/* Example of adjusting the footer height */
+.footer {
+    padding: 10px 0; /* Reduce the top and bottom padding */
+    margin: 0; /* Ensure there’s no extra margin */
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+    /* If the footer has a large height or fixed position, reduce its size */
+    .footer.fixed {
+        height: auto; /* Let the content determine the height */
+        padding: 10px 20px;
+    }
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+}
+
+    .footer h5 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .footer ul {
+        padding: 0;
+        list-style: none;
+    }
+
+        .footer ul li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+            .footer ul li a {
+                text-decoration: none;
+                color: #fff;
+                transition: color 0.3s;
+            }
+
+                .footer ul li a:hover {
+                    color: #007bff;
+                }
+
+    .footer .text-center p {
+        font-size: 1rem;
+        margin: 0;
+        color: #fff;
+    }
+
+/* Media Queries for Footer */
+@media (max-width: 768px) {
+    .footer .row {
+        text-align: center;
+    }
+
+    .footer .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
+ 
+/* Navbar links styling */
+.navbar-nav .nav-link {
+    border: 2px solid transparent; /* Transparent border by default */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Add padding for a button-like appearance */
+    margin-right: 10px; /* Add space between links */
+    color: #ffffff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+    /* Hover effect for links */
+    .navbar-nav .nav-link:hover {
+        border-color: #ffffff; /* White border on hover */
+        background-color: #ffffff; /* White background on hover */
+        color: #000000; /* Black text color on hover */
+    }
+
+    /* Active link styling */
+    .navbar-nav .nav-link.active {
+        border-color: #00bfff; /* Light blue border for active links */
+        background-color: #00bfff; /* Light blue background for active links */
+        color: #ffffff; /* White text color for active links */
+    }
+

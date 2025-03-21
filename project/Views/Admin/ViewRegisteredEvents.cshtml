@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EventManagementSystem.Models.Registration>
+
+@{
+    ViewBag.Title = "Registered Events";
+}
+<link href="~/Content/ViewRegisteredEvent.css" rel="stylesheet" />
+
+<div class="registered-events-container">
+    <h2>Registered Events</h2>
+
+    <!-- Display success or error messages -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-header">
+            <tr>
+                 <th>User Name</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Registered On</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registration in Model)
+            {
+                <tr>
+                     <td>@registration.User.FirstName @registration.User.LastName</td>
+                    <td>@registration.Event.Title</td>
+                    <td>@registration.Event.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@registration.RegistrationDate</td>
+                    <td>
+                        <!-- View Event Button -->
+                        <a href="@Url.Action("Details", "Event", new { id = registration.EventId })" class="btn btn-info btn-sm">View Event</a>
+
+                        <!-- Delete Registration Button -->
+                        <a href="@Url.Action("DeleteRegistration", "Admin", new { id = registration.RegistrationId })"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to delete this registration?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

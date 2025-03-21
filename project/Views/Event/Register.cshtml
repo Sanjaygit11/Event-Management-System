@@ -1,0 +1,41 @@
+﻿@model EventManagementSystem.Models.EventRegistrationViewModel
+
+@{
+    ViewBag.Title = "Event Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Event_Register.css" />
+
+<div class="container">
+    <div class="card">
+        <h2>Register for Event</h2>
+        <div class="registration-summary">
+            <h4>@Model.Title</h4>
+            <p><strong>Description:</strong> @Model.Description</p>
+            <p><strong>Date:</strong> @Model.Date.ToString("dd-MM-yyyy")</p>
+            <p><strong>Location:</strong> @Model.Location</p>
+            <p><strong>Available Seats:</strong> @Model.AvailableSeats</p>
+        </div>
+
+        <form action="@Url.Action("Register", "Event", new { id = Model.EventId })" method="post">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.EventId)
+
+            <div class="form-group">
+                <label for="NumberOfSeats">Number of Seats (Max 5):</label>
+                @Html.TextBoxFor(m => m.NumberOfSeats, new { @class = "form-control", @type = "number", min = "1", max = "5", required = "required" })
+                @Html.ValidationMessageFor(m => m.NumberOfSeats)
+            </div>
+
+            <div class="button-wrapper">
+                <button type="submit" class="btn btn-primary">Confirm Registration</button>
+                <a href="@Url.Action("Index", "Event")" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+
+        <div class="button-wrapper">
+            <a href="@Url.Action("Index", "UserDashboard")" class="btn btn-info">Go to Dashboard</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@using System.Linq
+@model EventManagementSystem.Models.UserDashboardViewModel
+<link rel="stylesheet" href="~/Content/User_Dashboard.css" />
+
+<div class="container">
+    <div class="top-right-button">
+        <a href="@Url.Action("EditProfile", "UserDashboard")" class="btn btn-primary">Edit Profile</a>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.User.ProfilePhotoPath))
+    {
+        <img src="@Url.Content(Model.User.ProfilePhotoPath)" alt="Profile Photo" class="img-thumbnail" />
+    }
+
+    <h2>Welcome, @Model.User.FirstName @Model.User.LastName</h2>
+
+    <h2>My Registered Events</h2>
+
+    @if (!Model.Registrations.Any())     
+    {
+    <p>You haven't registered for any events yet.</p>
+    }
+    else
+    {
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Event Title</th>
+                <th>Event Date</th>
+                <th>Location</th>
+                <th>Registration Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registration in Model.Registrations)
+            {
+                <tr>
+                    <td>@registration.Event.Title</td>
+                    <td>@registration.Event.Date.ToString("dd/MM/yyyy")</td>
+                    <td>@registration.Event.Location</td>
+                    <td>@registration.RegistrationDate</td>
+                    <td>
+                        <form action="@Url.Action("CancelRegistration", "UserDashboard", new { id = registration.RegistrationId })" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+    <a href="@Url.Action("Index", "Event")" class="btn btn-primary">Back to Events</a>
+</div>
